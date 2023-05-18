@@ -8,5 +8,11 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  siteMetadata: {
+    title: "Dev Blog",
+    description: "Gatsbyで作成したブログです。",
+    author: "Engineer K",
+  },
+
   plugins: [],
 }

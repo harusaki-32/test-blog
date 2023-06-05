@@ -7,6 +7,11 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: "Dev Blog",
@@ -14,5 +19,14 @@ module.exports = {
     author: "Engineer K",
   },
 
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID, // ContentfulのSpace ID
+        accessToken: process.env.GATSBY_CONTENTFUL_API_KEY, // ContentfulのAPI Key
+      },
+    },
+    `gatsby-plugin-image`,
+  ],
 }
